@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
+
 <?php
 require 'src/shiftplanning.php';
 $shiftplanning = new shiftplanning(
@@ -17,15 +18,15 @@ $session = $shiftplanning->getSession();
 
 if(!$session)
 {
-  $response = $shiftplanning->doLogin(
-  array(
-      'username' => 'nenad.vaskovic@gmail.com',
-      'password' => '05011981',
-  )
-);
-}
+    $response = $shiftplanning->doLogin(
+    array(
+        'username' => 'nenad.vakovic@gmail.com',
+        'password' => '05011981',
+    )
+  );
+  }
 
-// Define array with shifts module
+// Make an API call to get shifts
 
 $shifts = $shiftplanning->setRequest(
     array(
