@@ -34,9 +34,8 @@ $shifts = $shiftplanning->setRequest(
 // Get Employees and schedules using Quick Access methods
 $get_schedules = $shiftplanning->getResponse();
 $employees = $shiftplanning->getEmployees();
-
-$thor = $employees['data'][1]['name'];
-$wonderwoman = $employees['data'][2]['name'];
+$thor = $employees['data'][2]['name'];
+$wonderwoman = $employees['data'][1]['name'];
 $wonder_start_time = $get_schedules['data'][1]['start_time']['time'];
 $wonder_end_time = $get_schedules['data'][1]['end_time']['time'];
 $thor_start_time = $get_schedules['data'][2]['start_time']['time'];
