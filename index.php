@@ -11,23 +11,18 @@ $shiftplanning = new shiftplanning(
         'key' => '2034b257a60d77e9881b4c9a172a7edeeb269486'
     )
 );
-
 // Login and start the session
-
 $session = $shiftplanning->getSession();
-
 if(!$session)
 {
     $response = $shiftplanning->doLogin(
     array(
-        'username' => 'nenad.vakovic@gmail.com',
+        'username' => 'nenad.vaskovic@gmail.com',
         'password' => '05011981',
     )
   );
   }
-
 // Make an API call to get shifts
-
 $shifts = $shiftplanning->setRequest(
     array(
         'module' => 'schedule.shifts',
@@ -36,21 +31,16 @@ $shifts = $shiftplanning->setRequest(
         'mode' => 'overview'
     )
 );
-
 // Get Employees and schedules using Quick Access methods
-
 $get_schedules = $shiftplanning->getResponse();
 $employees = $shiftplanning->getEmployees();
 
 $thor = $employees['data'][1]['name'];
 $wonderwoman = $employees['data'][2]['name'];
-
 $wonder_start_time = $get_schedules['data'][1]['start_time']['time'];
 $wonder_end_time = $get_schedules['data'][1]['end_time']['time'];
-
 $thor_start_time = $get_schedules['data'][2]['start_time']['time'];
 $thor_end_time = $get_schedules['data'][2]['end_time']['time'];
-
 $wonder_position = $get_schedules['data'][1]['location']['name'];
 $thor_position = $get_schedules['data'][2]['location']['name'];
 ?>
